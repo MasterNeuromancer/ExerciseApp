@@ -13,7 +13,7 @@ export default class extends Component {
 			this.state.exercises.reduce((exercises, exercise) => {
 				const { muscles } = exercise;
 
-				exercises[muscles] = exercises[muscles] ? [ ...exercises[muscles], exercise ] : [ exercises ];
+				exercises[muscles] = exercises[muscles] ? [ ...exercises[muscles], exercise ] : [ exercise ];
 				return exercises;
 			}, {})
 		);
