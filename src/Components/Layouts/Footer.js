@@ -10,7 +10,7 @@ export default ({ muscles, category, onSelect }) => {
 		<Paper>
 			<Tabs value={index} onChange={onIndexSelect} indicatorColor="primary" textColor="primary" centered>
 				<Tab label="All" />
-				{muscles.map((group) => <Tab label={group} />)}
+				{muscles.map((group) => <Tab key={group} label={group} />)}
 			</Tabs>
 		</Paper>
 	);
