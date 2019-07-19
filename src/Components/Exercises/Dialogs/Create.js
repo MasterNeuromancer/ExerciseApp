@@ -8,22 +8,30 @@ export default class extends Component {
 		open: false
 	};
 
+	handleToggle = () => {
+		this.setState({
+			open: !this.state.open
+		});
+	};
+
 	render() {
 		const { open } = this.state;
 
 		return (
 			<Fragment>
-				<Fab color="secondary" size="small">
+				<Fab color="secondary" onClick={this.handleToggle} size="small">
 					<AddIcon />
 				</Fab>
-				<Dialog open={open} aria-labelledby="form-dialog-title">
+				<Dialog open={open} onClose={this.handleToggle}>
 					<DialogTitle id="form-dialog-title">Create a new exercise</DialogTitle>
 					<DialogContent>
 						<DialogContentText>Please fill out the form below</DialogContentText>
 						<form />
 					</DialogContent>
 					<DialogActions>
-						<Button color="primary">Create</Button>
+						<Button color="primary" variant="contained">
+							Create
+						</Button>
 					</DialogActions>
 				</Dialog>
 			</Fragment>
