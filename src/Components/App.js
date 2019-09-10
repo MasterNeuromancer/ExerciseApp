@@ -32,7 +32,7 @@ export default class extends Component {
 
 	handleExerciseCreate = (exercise) => {
 		this.setState(({ exercises }) => ({
-			exercise: [ ...exercises, exercise ]
+			exercises: [ ...exercises, exercise ]
 		}));
 	};
 

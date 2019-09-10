@@ -51,7 +51,19 @@ export default withStyles(styles)(
 		handleSubmit = () => {
 			const { exercise } = this.state;
 
-			this.props.onCreateExercise(exercise);
+			this.props.onCreate({
+				...exercise,
+				id: exercise.title.toLocaleLowerCase().replace(/ /g, '-')
+			});
+
+			this.setState({
+				open: false,
+				exercise: {
+					title: '',
+					description: '',
+					muscles: ''
+				}
+			});
 		};
 
 		render() {
@@ -79,7 +91,11 @@ export default withStyles(styles)(
 								<FormControl className={classes.FormControl}>
 									<InputLabel htmlFor="muscles">Muscles</InputLabel>
 									<Select value={muscles} onChange={this.handleChange('muscles')}>
-										{categories.map((category) => <MenuItem value={category}>{category}</MenuItem>)}
+										{categories.map((category) => (
+											<MenuItem key={category} value={category}>
+												{category}
+											</MenuItem>
+										))}
 									</Select>
 								</FormControl>
 								<br />
