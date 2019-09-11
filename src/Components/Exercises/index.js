@@ -1,7 +1,15 @@
 import React, { Fragment } from 'react';
-import { Grid, Paper, Typography, List } from '@material-ui/core';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
+import {
+	Grid,
+	Paper,
+	Typography,
+	List,
+	ListItemSecondaryAction,
+	ListItem,
+	ListItemText,
+	IconButton
+} from '@material-ui/core';
+import { Delete } from '@material-ui/icons';
 
 const styles = {
 	Paper: { padding: 20, marginTop: 10, marginBottom: 10, height: 500, overflowY: 'auto' }
@@ -27,6 +35,11 @@ export default ({
 									{exercises.map(({ id, title }) => (
 										<ListItem key={id} button onClick={() => onSelect(id)}>
 											<ListItemText primary={title} />
+											<ListItemSecondaryAction>
+												<IconButton>
+													<Delete />
+												</IconButton>
+											</ListItemSecondaryAction>
 										</ListItem>
 									))}
 								</List>
